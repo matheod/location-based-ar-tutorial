@@ -1,5 +1,14 @@
+ca = 0;
+cb = 0;
+
 
 window.onload = () => {
+
+    navigator.geolocation.getCurrentPosition(function(g){
+    ca = g.coords.latitude;
+    cb = g.coords.longitude;
+    });
+    
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '﹖';
 
@@ -13,8 +22,8 @@ function staticLoadPlaces() {
             name: 'Pokèmon',
             location: {
                 // decomment the following and add coordinates:
-                // lat: <your-latitude>,
-                // lng: <your-longitude>,
+                 lat: ca,
+                 lng: cb,
             },
         },
     ];
